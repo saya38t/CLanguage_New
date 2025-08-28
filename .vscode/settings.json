@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "ostream": "cpp",
+        "iostream": "cpp"
+    },
+    "vim.insertModeKeyBindings": [
+      {
+          "before": ["j", "j"],
+          "after": ["<Esc>"]
+      }
+    ],
+
+    "vim.hlsearch": true
+
+}
