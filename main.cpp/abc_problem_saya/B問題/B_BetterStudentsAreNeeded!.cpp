@@ -3,7 +3,7 @@ using namespace std;
 #define rep(i,n) for(int i=0; i<(n);++i)
 using ll = long long;
 
-void num(vector<pair<int,int>>& A){
+void num(vector<pair<int,int>>& A){//関数(配列いじる)
     int j=1;
     rep(i,A.size()){
         A[i].second = -j;
@@ -12,7 +12,7 @@ void num(vector<pair<int,int>>& A){
 }
 
 void solve(vector<pair<int,int>>& A, vector<bool>& ans, int x){
-    sort(A.rbegin(), A.rend());
+    sort(A.rbegin(), A.rend());//参照渡し
     int i=0;
     while(x>0){
         if(ans[-A[i].second]==false){
