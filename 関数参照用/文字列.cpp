@@ -38,7 +38,8 @@ int main() {
 
     //部分文字列
     int a=1, b=2;
-    str3.substr(a,b);//文字列str3のa文字目~b文字目だけ取り出す
+    str3.substr(a,b);
+    //substr(開始位置,取り出す長さ)
 
     return 0;
 }
