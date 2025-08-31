@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define rep(i, n) for (int i = 0; i < (n); i++)
+using ll = long long;
 
 int main() {
     // 数の初期化
@@ -24,6 +25,16 @@ int main() {
     // 数の絶対値
     int negative_a = -a;
     cout << "Absolute value of a: " << abs(negative_a) << endl; // Absolute value of a: 5
+
+    //数値を文字列(string)に変換
+    int z = 3380;
+    string str=to_string(z);//"3380"
+
+    //文字列を数値に変換
+    //intに変換
+    int num = stoi(str);
+    //long longに変換
+    ll num = stoll(str);
 
     return 0;
 }
