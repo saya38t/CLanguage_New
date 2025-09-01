@@ -11,8 +11,10 @@ int main() {
     int max_value = *max_element(arr.begin(), arr.end()); // 8
 
     //配列の要素を削除
-    arr.erase(arr.begin()+1);
     /*イテレータで指定した要素を削除、後ろの要素が前進*/
+    arr.erase(arr.begin()+1);
+    //配列の末尾を削除
+    arr.pop_back();
 
     //配列に挿入
     arr.push_back(4); // 配列の末尾に4を追加
