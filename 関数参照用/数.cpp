@@ -6,8 +6,10 @@ using ll = long long;
 int main() {
     // 数の初期化
     int a = 5;//10桁整数
-    double b = 3.14;//少数型(有効数字16桁)
+    double b = 3.14;//少数型(有効数字16桁)※出力だと桁数頼りない
     long long c = 10000000000LL;//19桁整数
+    double d = 4.5642571943300556;
+    printf("%.16f\n",d);//小数点以下16桁で出力(\nで改行)
 
     // 数の演算
     int sum = a + 10; // 15
@@ -32,9 +34,9 @@ int main() {
 
     //文字列を数値に変換
     //intに変換
-    int num = stoi(str);
+    int numi = stoi(str);
     //long longに変換
-    ll num = stoll(str);
+    ll numl = stoll(str);
 
     return 0;
 }
