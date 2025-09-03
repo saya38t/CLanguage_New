@@ -15,16 +15,14 @@ int main(){
         int s = vec.size();
         if(s<=1 || vec[s-1]!=vec[s-2]) return;
         else if(vec[s-1]==vec[s-2]){
-            ll sum = (ll) vec[s-1]*2;
+            int sum = ++vec[s-1];//先に++してから代入！
             vec.pop_back();
             vec.pop_back();
             self(self,vec,sum);
         }
     };
 
-    rep(i,n){
-        f(f,ans,A[i]);
-    }
+    rep(i,n) f(f,ans,A[i]);
     cout << ans.size() << endl;
     return 0;
 }

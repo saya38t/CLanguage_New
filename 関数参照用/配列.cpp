@@ -12,12 +12,12 @@ int main() {
 
     //配列の要素を削除
     /*イテレータで指定した要素を削除、後ろの要素が前進*/
-    arr.erase(arr.begin()+1);
+    arr.erase(arr.begin()+1);//入れる位置以降の長さ=PとするとO(P)
     //配列の末尾を削除
-    arr.pop_back();
+    arr.pop_back();//O(1)
 
-    //配列に挿入
-    arr.push_back(4); // 配列の末尾に4を追加
+    //配列の末尾に追加
+    arr.push_back(4); //4を追加 O(1)
 
     //配列のソート
     sort(arr.begin(), arr.end()); // 昇順にソート
