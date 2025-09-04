@@ -19,7 +19,7 @@ int main(){
     }
     rep(i,n){
         cout << city[i].size() << ' ';
-        for(int j:city[i]) cout << j+1 << ' ';
+        for(int j:city[i]) cout << j+1 << ' ';//配列の要素に順番にアクセス
         cout << endl;
     }
     return 0;
