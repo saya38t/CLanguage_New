@@ -11,6 +11,9 @@ int main() {
     double d = 4.5642571943300556;
     printf("%.16f\n",d);//小数点以下16桁で出力(\nで改行)
 
+    //10のn乗の書き方
+    int ans = 1e8;//10の8乗
+
     // 数の演算
     int sum = a + 10; // 15
     double product = b * 2; // 6.28
