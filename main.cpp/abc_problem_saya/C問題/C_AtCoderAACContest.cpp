@@ -6,27 +6,20 @@ using P = pair<int,int>;
 const double PI = acos(-1);
 
 int main(){
-    ll t;
+    int t;
     cin >> t;
     rep(i,t){
-        ll ans = 0;
-        ll a,b, c;
+        unsigned ans = 0;
+        unsigned a,b,c;
         cin >> a >> b >> c;
-        ll m = min(min(a,b),c);
+        unsigned m = min(min(a,b),c);
         ans += m;
         a-=m;
         b-=m;
         c-=m;
         if(b==0 && a>0 && c>0){
-            ll n =0;
-            if(a>=c) {
-                n= (a+1)/2;
-                ans += min(n,c);
-            }
-            else if(a<=c){
-                n= (c+1)/2;
-                ans += min(n,a);
-            }
+            unsigned n =0;
+            ans += min({a,c,(a+c)/3});
             cout << ans << '\n';
         }
         else cout << ans << '\n';
