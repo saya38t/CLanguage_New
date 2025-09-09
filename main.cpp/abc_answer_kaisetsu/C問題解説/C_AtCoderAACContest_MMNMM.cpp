@@ -6,8 +6,14 @@ using P = pair<int,int>;
 const double PI = acos(-1);
 
 int main(){
-    int n, k;
-    cin >> n >> k;
-    
+   int t;
+   cin >> t;
+   rep(i,t){
+    unsigned a,b,c;
+    cin >> a >> b >> c;
+    cout << min({a,c,(a+b+c)/3}) << endl;
+   }
+   return 0;
 }
+
 /**/
