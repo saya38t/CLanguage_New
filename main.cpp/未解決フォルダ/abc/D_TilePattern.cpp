@@ -12,6 +12,6 @@ int main(){
     rep(i,n)rep(j,n){
         cin >> cdn[i][j];
     }
-    
+
 }
-/**/
+/*modの法則性のあたりから頑張ってみる*/

@@ -7,4 +7,4 @@ const double PI = acos(-1);
 
 int main(){
 }
-/**/
+/*二文探索解法、気が向いたらやろうね*/
