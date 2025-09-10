@@ -41,5 +41,15 @@ int main() {
     //long longに変換
     ll numl = stoll(str);
 
+    //文字を数字に変換
+    //ASCIIコード(0~9の計算のみ対応)
+    int e = '1'-'0';//変換したいchar-'0'
+    cout << e;
+    //数字を含む文字から一文字だけ計算する
+    string S = "1to8";
+    cout <<S << endl;
+    S[3]+=1;
+    cout << S <<"dou";
+
     return 0;
 }
