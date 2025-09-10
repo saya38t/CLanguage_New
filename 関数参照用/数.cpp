@@ -41,7 +41,18 @@ int main() {
     //long longに変換
     ll numl = stoll(str);
 
+
     //文字を数字に変換
+
+    //文字と数字混じりで同じ形の入力のとき
+    //scanf, printf
+    int a,b;//型指定
+    //入力(参照渡し)
+    scanf("%d-%d", &a,&b);//"a-b"の形で受け取る(a,bが数字)
+    a++;b--;//a,bは数字として計算できる
+    //出力(末尾改行)
+    printf("%d-%d\n", a,b);
+
     //ASCIIコード(0~9の計算のみ対応)
     int e = '1'-'0';//変換したいchar-'0'
     cout << e;
