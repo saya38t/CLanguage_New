@@ -53,14 +53,17 @@ int main() {
     //出力(末尾改行)
     printf("%d-%d\n", a,b);
 
-    //ASCIIコード(0~9の計算のみ対応)
+
+    //0~9の計算におさまるとき
+
+    //ASCIIコード
     int e = '1'-'0';//変換したいchar-'0'
     cout << e;
-    //数字を含む文字から一文字だけ計算する
+
+    //そのまま足す
     string S = "1to8";
-    cout <<S << endl;
-    S[3]+=1;
-    cout << S <<"dou";
+    S[3]+=1;//"1to9"
+    cout << S <<endl;
 
     return 0;
 }
