@@ -6,6 +6,5 @@ using P = pair<int,int>;
 const double PI = acos(-1);
 
 int main(){
-    
 }
 /**/
