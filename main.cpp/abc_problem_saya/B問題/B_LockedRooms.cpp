@@ -15,7 +15,7 @@ int main(){
     int m=0,h=0;
     rep(i,n) {
         if(l[i]==1){
-            h=i+1;
+            h=i;
             break;
         }
     }
@@ -25,9 +25,7 @@ int main(){
             break;
         }
     }
-    if(m==0 && h==0) cout << 0 << endl;
-    else if(m-h<0) cout << 0 << endl;
-    else cout << m-h+1 << endl;
+    cout << m-h << endl;
     return 0;
 }
 /*言い換えてシンプルに解く*/

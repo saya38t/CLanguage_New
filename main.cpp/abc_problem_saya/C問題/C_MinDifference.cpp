@@ -12,16 +12,16 @@ const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 int main(){
     int n,m;
     cin >> n >> m;
-    vector<ll>A(n);
-    vector<ll>B(m);
+    vector<int>A(n);
+    vector<int>B(m);
     rep(i,n) cin >> A[i];
     rep(i,m) cin >> B[i];
-    vector<ll>mB(m);
+    vector<int>mB(m);
     rep(i,m) mB[i]=-B[i];
     sort(A.begin(),A.end());
     sort(B.begin(),B.end());
     sort(mB.begin(),mB.end());
-    ll ans = 1e9;
+    ll ans = (ll)abs(A[0]-B[0]);
     rep(i,n){
         int b = lower_bound(B.begin(),B.end(),A[i])-B.begin();
         int mb = lower_bound(mB.begin(),mB.end(),-A[i])-mB.begin();

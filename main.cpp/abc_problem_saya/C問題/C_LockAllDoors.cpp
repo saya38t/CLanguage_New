@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define rep(i,n) for(ll i=0; i<(n); ++i)
+#define rep(i,n) for(int i=0; i<(n); ++i)
+#define _GLIBCXX_DEBUG//配列外参照防止
 using ll = long long;
 using P = pair<int,int>;
 const double PI = acos(-1); //π
@@ -8,31 +9,34 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    ll n,r;
+    int n,r;
     cin >> n >> r;
-    vector<ll>l(n);
+    vector<int>l(n);
     rep(i,n) cin >> l[i];
-    ll m=-1,h=-1;
-    for(ll i=r-1; i>-1 ;i--) {
+    ll ans = 0;
+    int R=r,L=r;
+    if(r>n-1) {
+        R=n-1; L=n-1;
+    }
+    rep(i,r+1) {//左～R
         if(l[i]==0){
-            m=(ll)i;
+            L=i;
             break;
         }
     }
-    for(ll i=r; i<n; i++){
+    for(int i=n-1; i>r-1;i--){//右～R
         if(l[i]==0){
-            h=(ll)i;
+            R=i;
             break;
         }
     }
-    if(h==-1) h=r-1;
-    if(m==-1) m=r;
-    ll ans = 0LL;
-    for(ll i=m; i<h+1;i++){
-        if(l[i]==0) ans++;
-        else ans+=2;
+    if(L==R && l[L]==1){
+        cout << 0 << endl;
+        return 0;
     }
-    cout << h << m << endl;
+    for(int i=L; i<R+1; i++){
+        ans+=(l.at(i)+1);
+    }
     cout << ans << endl;
     return 0;
 }
