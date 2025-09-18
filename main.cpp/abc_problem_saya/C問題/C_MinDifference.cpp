@@ -1,8 +1,7 @@
-/*未AC、WA無くす方法考える*/
+#define _GLIBCXX_DEBUG//配列外参照防止
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for(int i=0; i<(n); ++i)
-#define _GLIBCXX_DEBUG//配列外参照防止
 using ll = long long;
 using P = pair<ll,char>;
 const double PI = acos(-1); //π
@@ -25,8 +24,10 @@ int main(){
     rep(i,n){
         int b = lower_bound(B.begin(),B.end(),A[i])-B.begin();
         int mb = lower_bound(mB.begin(),mB.end(),-A[i])-mB.begin();
-        ll db = (ll) abs(B[b]-A[i]);
-        ll dmb = (ll) abs(-mB[mb]-A[i]);
+        if(b==m) b--;
+        if(mb==m) mb--;
+        ll db = (ll) abs(B.at(b)-A[i]);
+        ll dmb = (ll) abs(-mB.at(mb)-A[i]);
         ans = min({ans,db,dmb});
     }
     cout << ans << endl;

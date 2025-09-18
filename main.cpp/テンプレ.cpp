@@ -1,7 +1,7 @@
+#define _GLIBCXX_DEBUG//配列外参照防止
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for(int i=0; i<(n); ++i)
-#define _GLIBCXX_DEBUG//配列外参照防止
 using ll = long long;
 using P = pair<int,int>;
 const double PI = acos(-1); //π
