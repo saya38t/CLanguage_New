@@ -4,7 +4,8 @@
         "iostream": "cpp",
         "vector": "cpp",
         "string": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "xtree": "cpp"
     },
     "vim.insertModeKeyBindings": [
       {
