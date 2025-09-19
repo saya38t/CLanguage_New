@@ -9,6 +9,24 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
+    int n;
+    cin >> n;
+    set<string> st;
+    int amd = 0;
+    vector<P> point;
+    rep(i,n){
+        string S;
+        int T;
+        cin >> S >> T;
+        st.emplace(S);
+        if(st.size()+amd < i+1) {
+            amd++;
+            continue;
+        }
+        point.emplace_back(pair(T,-i-1));//(値、番号)
+    }
+    sort(point.rbegin(),point.rend());
+    cout << -point[0].second << endl;
+    return 0;
 }
 /*言い換えてシンプルに解く*/
