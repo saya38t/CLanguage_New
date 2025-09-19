@@ -21,6 +21,11 @@ int main(){
     //要素数
     cout << st.size() << endl;
 
+    //要素出力(裏ワザ)
+    vector<int>all;//vectorを用意
+    for(int d:st) all.emplace_back(d);//setの要素をvectorに入れる
+    cout << all[0]<< endl;//要素番号指定してかんたん出力
+
     //要素出力
     auto it = st.begin();//先頭イテレータ
     rep(i, st.size()){
