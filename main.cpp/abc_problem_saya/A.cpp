@@ -1,4 +1,4 @@
-//ABC423のD問題、絶対練習する！！
+#define _GLIBCXX_DEBUG//配列外参照防止
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for(int i=0; i<(n); ++i)
@@ -9,9 +9,5 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
-    queue<P>cx;//キュー
-    cx.emplace(c,x);//キューに追加
-    cx.pop();//先頭のペアを削除
 }
 /*言い換えてシンプルに解く*/
