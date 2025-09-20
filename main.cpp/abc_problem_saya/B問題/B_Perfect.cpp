@@ -9,5 +9,19 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
+    int n,m,k;
+    cin >> n >> m>>k;
+    vector<int>A(n);
+    vector<int>ans;
+    rep(i,k){
+        int a,b;
+        cin >> a>>b;
+        A[a-1]++;
+        if(A[a-1]==m) ans.emplace_back(a);
+    }
+    rep(i,ans.size()) cout << ans[i] << ' ';
+    cout << endl;
+    return 0;
+
 }
 /*言い換えてシンプルに解く*/
