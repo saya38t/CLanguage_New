@@ -13,28 +13,24 @@ int main(){
     cin >> S;
     int ans = 0;
     bool one = false;
-    int i=0;
+    int now=0;
     string pre;
-    while(i < S.size()){
+    while(now < S.size()){
         if(one){//前が１文字
-            if(S[i]==S[i-1]) {
-                pre=S[i]+S[i+1];
-                i+=2;
+            if(S[now]==S[now-1]) {//2文字で斬る
+                if(now==S.size()-1) break;
+                pre=S[now]+S[now+1];
+                now+=2;
                 one = false;
             }
-            else i++;
+            else now++;
         }
-        else if(i==S.size()-2 && pre==S.substr(S.size()-2,2)){//最後の処理
-            ans--;
-            break;
-        }
-        else {
+        else {//１文字で斬る.最後2文字ダブっても3,1に分ければ良い
             one = true;
-            i++;
-            ans++;
+            now++;
         }
+        ans++;
     }
     cout << ans << endl;
     return 0;
 }
-/*言い換えてシンプルに解く*/
