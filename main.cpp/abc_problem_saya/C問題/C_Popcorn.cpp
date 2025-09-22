@@ -14,11 +14,11 @@ int main(){
     vector<string>S(n);
     rep(i,n) cin >> S[i];
     int ans = 10;
-    for(int bit=0; bit<(1<<n) ;++bit){//bit全探索
+    for(int bit=0; bit<(1<<n) ;++bit){//bit全探索(ここで選び方決める)
         vector<bool>bs(m);
         int sum=0;
         int cnt=0;
-        for(int i=0; i<n; ++i){//どれを選ぶか
+        for(int i=0; i<n; ++i){//どれを選ぶか(整数型に復元)
             if(bit & (1<<i)){
                 rep(j,m)if(S[i][j]=='o') bs[j]=true;
                 cnt++;
