@@ -9,6 +9,9 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
+    int x;
+    cin >> x;
+    int k=1;
+    while(x*k%360!=0) k++;
+    cout << k << endl;
 }
-/*言い換えてシンプルに解く*/
