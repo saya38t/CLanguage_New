@@ -5,7 +5,8 @@
         "vector": "cpp",
         "string": "cpp",
         "queue": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "map": "cpp"
     },
     "vim.insertModeKeyBindings": [
       {

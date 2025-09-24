@@ -9,5 +9,16 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
+    int n; ll m;
+    cin >> n >> m;
+    vector<ll>A(n);
+    rep(i,n) cin >> A[i];
+    ll sum=0;
+    rep(i,n) sum+=A[i];
+    if(sum<=m) {
+        cout << "infinite" << endl;
+        return 0;
+    }
+    
+    return 0;
 }
-/*言い換えてシンプルに解く*/
