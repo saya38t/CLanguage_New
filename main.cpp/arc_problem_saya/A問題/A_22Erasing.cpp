@@ -1,3 +1,4 @@
+//いもす(累積和)
 #define _GLIBCXX_DEBUG//配列外参照防止
 #include <bits/stdc++.h>
 using namespace std;
