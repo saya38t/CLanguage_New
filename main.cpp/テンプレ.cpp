@@ -1,4 +1,6 @@
-#define _GLIBCXX_DEBUG//配列外参照防止
+#ifndef ONLINE_JUDGE
+  #define _GLIBCXX_DEBUG//配列外参照防止
+#endif
 #include <bits/stdc++.h>
 using namespace std;
 #define rep(i,n) for(int i=0; i<(n); ++i)
