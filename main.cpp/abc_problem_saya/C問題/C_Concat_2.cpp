@@ -15,26 +15,22 @@ int main(){
   cin >> n >> k >> x;
   vector<string>S(n);
   rep(i,n) cin >> S[i];
-  vector<string>str;
-  int cnt = 0;
-
+  vector<string>ans;
   auto dfs = [&](auto dfs, vector<int>a) -> void {
     if(a.size()==k){//再帰終了時の処理
-      cnt++;
-      string s;
+      string s="";
       rep(i,k) s+=S[a[i]];
-      str.emplace_back(s);
+      ans.emplace_back(s);
       return;//ループに戻る
     }
     rep(i,n){
       vector<int> na = a;//関数保持
-      na.emplace_back(i);//足す
+      na.push_back(i);//足す
       dfs(dfs, na);//再帰呼び出し
     }
-  };
+    };
     dfs(dfs,vector<int>(0));
-    sort(str.begin(),str.end());
-    cout << str[x-1] << endl;
+    sort(ans.begin(),ans.end());
+    cout << ans[x-1] << endl;
     return 0;
 }
-/*言い換えてシンプルに解く*/
