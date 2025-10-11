@@ -11,6 +11,15 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-  
+  int n;
+  cin >> n;
+  vector<int>S(n); rep(i,n) cin >> S[i];
+  vector<int>T(n); rep(i,n) cin >> T[i];
+  rep(i,2*n){
+    int j=(i+n)%n;
+    int t=T[j]+S[j];
+    T[(j+1+n)%n]=min(t,T[(j+1+n)%n]);
+  }
+  rep(i,n) cout << T[i] << endl;
+  return 0;
 }
-/*言い換えてシンプルに解く*/
