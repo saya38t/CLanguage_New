@@ -6,10 +6,10 @@ int main(){
     vector<int>a(n);//配列でとると楽
     rep(i,n) cin >> a[i];//点数配列
     vector<pair<int,string>>ranking;
-    for(int s=1; s<32; s++){
+    for(int s=1; s<32; s++){//ビット全探索
         int score=0;
         string name;
-        rep(i,n){//ビット全探索
+        rep(i,n){
             if(s>>i &1){//i桁目が1なら得点＆文字
                 score+=a[i];
                 name+='A'+i;//A+1=B,A+2=C,,,
