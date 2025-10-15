@@ -11,5 +11,19 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
+  vector<int>abc(3);
+  rep(i,3) cin >> abc[i];
+  sort(abc.begin(),abc.end());
+  int mx=abc[2], mdl=abc[1], mn=abc[0];
+  int ans = 0;
+  ans+=mx-mdl;
+  int s=mx-(mn+ans);
+  if(s%2==1){
+    s++;
+    ans++;
+  }
+  ans+=s/2;
+  cout << ans << endl;
+  return 0;
 }
-/*言い換えてシンプルに解く*/
+/*16分*/
