@@ -16,7 +16,7 @@ int main(){
   vector<string>S(n);
   rep(i,n) cin >> S[i];
   vector<string>ans;
-  auto dfs = [&](auto dfs, vector<int>a) -> void {
+  auto dfs = [&](auto , vector<int>a) -> void {
     if(a.size()==k){//再帰終了時の処理
       string s="";
       rep(i,k) s+=S[a[i]];
