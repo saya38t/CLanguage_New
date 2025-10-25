@@ -9,7 +9,8 @@
         "map": "cpp",
         "xstring": "cpp",
         "utility": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "unordered_set": "cpp"
     },
     "vim.insertModeKeyBindings": [
       {
