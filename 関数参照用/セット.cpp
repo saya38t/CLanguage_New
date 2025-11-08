@@ -33,6 +33,12 @@ int main(){
         advance(it,1);//イテレータを１つ進める
     }
     //最小・最大取得
+
+    // 最小の要素にアクセスする
+	std::cout << *st.begin() << '\n'; // 1
+	// 最大の要素にアクセスする
+	std::cout << *std::prev(st.end()) << '\n'; // 9
+
     // 先頭及び末尾-1のイテレータを取得
     auto minIte = st.begin();
     auto maxIte = --st.end();

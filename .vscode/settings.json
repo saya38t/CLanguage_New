@@ -11,7 +11,8 @@
         "utility": "cpp",
         "random": "cpp",
         "unordered_set": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "xutility": "cpp"
     },
     "vim.insertModeKeyBindings": [
       {
