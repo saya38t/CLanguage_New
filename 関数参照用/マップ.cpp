@@ -12,6 +12,9 @@ int main(){
     cnt[y-x]++;
     cnt[x-y]++;
     //vectorと違い、マイナスのキーを指定しても壊れにくい
+    //値を取り出す
+    int ans=0;//[キー,値]
+    for(auto [key,val] :cnt) ans=max(ans,val);
 
     //(キー：配列)の配列を作りたいなら
     map<int,vector<int>>mp;//(値：配列)
