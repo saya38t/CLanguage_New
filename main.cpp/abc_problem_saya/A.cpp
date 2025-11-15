@@ -1,17 +1,31 @@
-#ifndef ONLINE_JUDGE
-  #define _GLIBCXX_DEBUG//配列外参照防止
-#endif
 #include <bits/stdc++.h>
 #include <unordered_set>
 using namespace std;
 using ll = long long;
 #define rep(i,n) for(int i=0; i<(n); ++i)
-using P = pair<int,int>;
-const double PI = acos(-1); //π
-const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
-const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-
+  ll n,x,y; cin >> n >> x >> y;
+  vector<ll>A(n);
+  rep(i,n) cin >> A[i];
+  sort(A.begin(),A.end());
+  ll MIN=0, MAX=1000000000000001LL;
+  rep(i,n){
+    MIN = max((ll)A[i]*x,MIN);
+    MAX = min((ll)A[i]*y,MAX);
+  }
+  if(MAX-MIN<0){
+    cout << -1 << endl;
+    return 0;
+  }
+  ll G = MAX;
+  if((G-A[0]*x)%(y-x)!=0) G-=(G-A[0]*x)%(y-x);
+  if(G<=MIN){
+    cout << -1 << endl;
+    return 0;
+  }
+  ll ans = 0;
+  rep(i,n) ans += (G-A[i]*x)/(y-x);
+  cout << ans << endl;
   return 0;
 }
