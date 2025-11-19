@@ -25,7 +25,7 @@ int main(){
     vector<int>a(n);
     rep(i,n) a[i]=i;
 
-    //next_permutation
+    //next_permutation(順列全探索)
     do{//並び替えた配列への処理
     for(int bit=0; bit<(1<<n) ;++bit){//bit全探索(ここで選び方決める)
         double l = 0; P pre=P(0,0);

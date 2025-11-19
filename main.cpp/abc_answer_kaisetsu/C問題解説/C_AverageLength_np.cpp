@@ -23,7 +23,7 @@ int main(){
   rep(i,n) vec[i]=i;
 
   //next_permutation
-  do{//並び替えた配列への処理
+  do{//並び替えた配列への処理(順列全探索)
     rep(i,n-1) sum+=(double)sqrt(
       (x[vec[i]]-x[vec[i+1]])*(x[vec[i]]-x[vec[i+1]])+
       (y[vec[i]]-y[vec[i+1]])*(y[vec[i]]-y[vec[i+1]])
