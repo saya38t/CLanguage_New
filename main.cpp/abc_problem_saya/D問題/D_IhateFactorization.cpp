@@ -12,6 +12,15 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
+    ll x; cin >> x;
+    for(ll a=-5000; a<5000; a++){
+        ll A = (ll)a*a*a*a*a;
+        for(ll b=-5000; b<5000; b++){
+            if(A-(b*b*b*b*b)==x){
+                cout << a << ' ' << b << endl;
+                return 0;
+            }
+        }
+    }
     return 0;
 }
