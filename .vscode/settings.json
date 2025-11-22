@@ -13,7 +13,8 @@
         "unordered_set": "cpp",
         "ios": "cpp",
         "xutility": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "algorithm": "cpp"
     },
     "vim.insertModeKeyBindings": [
       {
