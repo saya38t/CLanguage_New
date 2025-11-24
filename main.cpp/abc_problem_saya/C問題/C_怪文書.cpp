@@ -16,7 +16,7 @@ int main(){
   vector<string>S(n);
   rep(i,n) cin >> S[i];
   map<char,int>mp;
-  rep(i,S[0].size()) mp[S[0][i]]++;
+  rep(i,S[0].size()) mp[S[0][i]]++;//
   rep(i,n){
     map<char,int>mmp;
     rep(j,S[i].size()) mmp[S[i][j]]++;
