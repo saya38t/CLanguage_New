@@ -12,6 +12,20 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-  
+  int n; cin >> n;
+  vector<int>A(n);
+  rep(i,n) cin >> A[i];
+  rep(i,n){
+    bool exist = false;
+    rep(j,i){
+      if(A[i]<A[i-j-1]){
+        cout << i-j << endl;
+        exist =true;
+        break;
+      }
+    }
+    if(exist) continue;
+    cout << -1 << endl;
+  }
   return 0;
 }

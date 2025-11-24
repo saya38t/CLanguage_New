@@ -12,6 +12,14 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-  
+  int x,y,z; cin >> x >> y>>z;
+  rep(i,10000){
+    if(y*z==x) {
+      cout << "Yes" << endl;
+      return 0;
+    }
+    x++; y++;
+  }
+  cout << "No" << endl;
   return 0;
 }

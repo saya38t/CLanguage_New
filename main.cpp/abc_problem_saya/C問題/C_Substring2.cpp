@@ -12,6 +12,27 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-  
+  string S; cin >> S;
+  S+='f';
+  char pre = S[0];
+  int cnt = 0;
+  int C = 0;
+  int ans = 0;
+  rep(i,S.size()){
+    if(S[i]==pre) cnt++;
+    else if((int)S[i]-'0'==(int)pre-'0'+1){
+      ans+=min(C,cnt);
+      C =cnt;
+      pre=S[i];
+      cnt = 1;
+    }
+    else{
+      ans += min(C,cnt);
+      pre = S[i];
+      cnt =1;
+      C=0;
+    }
+  }
+  cout << ans << endl;
   return 0;
 }
