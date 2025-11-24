@@ -14,6 +14,12 @@ const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 int main(){
     ll a,m,l,r;
     cin >> a >> m >> l >> r;
-    //もいちどやってみそ！
+    l-=a; r-=a;//a==0
+    if(l<0){
+      ll X = -l/m+1;
+      l+=X*m; r+=X*m;
+    }
+    ll ans = r/m-(l-1)/m;//lの前まで
+    cout << ans << endl;
     return 0;
 }
