@@ -15,6 +15,16 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
-    return 0;
+  int a,b; cin >> a >> b;
+  int w; cin >> w;
+  w*=1000;
+  int MIN=1000001, MAX=0;
+  rep(x,w+1){
+    if(a*x<=w && w<=b*x){
+      chmin(MIN,x); chmax(MAX,x);
+    }
+  }
+  if(MIN==1000001) cout << "UNSATISFIABLE" << endl;//Wにならない場合
+  else cout << MIN << ' ' << MAX << endl;
+  return 0;
 }
