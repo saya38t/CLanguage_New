@@ -15,6 +15,16 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
-    return 0;
+  int n; cin >> n;
+  string S; cin >> S;
+  int r=0,w=0,swap=0;
+  rep(i,S.size()){
+    if(S[i]=='R')r++;
+    else w++;
+  }
+  rep(i,S.size()){
+    if(i<r&&S[i]=='W') swap++;
+  }
+  cout << min({r,w,swap})<< endl;
+  return 0;
 }

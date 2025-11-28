@@ -15,6 +15,16 @@ const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    
-    return 0;
+  int n; cin >> n;
+  string S; cin >> S;
+  int a=0,b=0;
+  rep(i,S.size()) if(S[i]=='R')a++;
+  int ans = max(a,b);
+  rep(i,S.size()){
+    if(S[i]=='R')a--;
+    else b++;
+    ans = min(ans,(max(a,b)));
+  }
+  cout << ans << endl;
+  return 0;
 }
