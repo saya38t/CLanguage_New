@@ -1,34 +1,57 @@
+#ifndef ONLINE_JUDGE
+  #define _GLIBCXX_DEBUG//配列外参照防止
+#endif
 #include <bits/stdc++.h>
+#include <unordered_set>
 using namespace std;
-#define rep(i, n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+#define rep(i,n) for(ll i=0; i<(n); ++i)
+using P = pair<int,int>;
+//a=min(a,b)、a=max(a,b)
+template<typename T> bool chmin(T& a, T b){if(a > b){a = b; return true;} return false;}
+template<typename T> bool chmax(T& a, T b){if(a < b){a = b; return true;} return false;}
+const double PI = acos(-1); //π
+const vector<int>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
+const vector<int>dj={1,-1,0,1,-1,-1,1,0};
 
 int main(){
-    int t;
-    cin >> t;
-    for(int j=0; j < t; j++) {
-        int n; 
-        cin >> n;
-        vector<int> domino(n);
-        for(int i=0; i<n; i++){
-            cin >> domino[i];
-        }
-        sort(domino.begin()+1, domino.end()-1);
-        vector<int> ans(1);
-        ans[0]=domino[0];
-        bool answer = false;
-        for(int i=1; i<n; i++){
-            if(*(ans.end()-1)*2 < domino[i]){
-                ans.push_back(domino[i-1]);
-            }
-            if(*(ans.end()-1)*2 >= domino[n-1]){
-                answer = true;
-                break;
-            }
-        }
-        if(answer) cout << ans.size()+1 << endl;
-        else cout << "-1" << endl;
-            
+  ll t; cin>>t;
+  rep(i,t){
+    ll n; cin>>n;
+    vector<int>dmn(n);
+    rep(i,n) cin >> dmn[i];
+    int s=dmn[0],g=dmn[n-1];
+    vector<int>vec;
+    for(int d:dmn){
+      if(d<s) continue;
+      if(d>g) continue;
+      vec.emplace_back(d);
     }
-
-    return 0;
+    sort(vec.begin(),vec.end());
+    n=vec.size();
+    if(n==2){
+      if(s*2>=g) cout << 2 << endl;
+      else cout << -1 << endl;
+      continue;
+    }
+    bool flg=false;
+    rep(i,n-1){
+      if(vec[i]*2<vec[i+1]) {
+        cout << -1 << endl;
+        flg=true;
+        break;
+      }
+    }
+    if(flg) continue;
+    int cnt=1;
+    int last=0;
+    for(int i=1; i<n; i++){
+      if(vec[last]*2<vec[i]) {
+        cnt++;
+        last=i-1;
+      }
+    }
+    cout<<cnt+1<<endl;
+  }
+  return 0;
 }
