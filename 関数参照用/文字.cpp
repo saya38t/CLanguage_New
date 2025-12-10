@@ -28,5 +28,13 @@ int main(){
     // 文字列の長さ
     cout << "Length of str3: " << str3.length() << endl; // 13
 
+    //文字逆にする
+    string s="abc";
+    reverse(s.begin(),s.end());
+
+    //特定の文字を削除する
+    //イテレータ指定、真ん中削除したいとき
+    s.erase(s.begin()+(s.size()/2));
+
     return 0;
 }
