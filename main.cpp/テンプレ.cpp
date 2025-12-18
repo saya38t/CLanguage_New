@@ -4,8 +4,10 @@
 #include <bits/stdc++.h>
 #include <unordered_set>
 using namespace std;
+/*
 #include <atcoder/all>
-using namespace atcoder;
+using namespace atcoder;//必要なときだけ
+*/
 using ll = long long;
 #define rep(i,n) for(ll i=0; i<(n); ++i)
 using P = pair<ll,ll>;

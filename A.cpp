@@ -4,8 +4,10 @@
 #include <bits/stdc++.h>
 #include <unordered_set>
 using namespace std;
+/*
 #include <atcoder/all>
-using namespace atcoder;
+using namespace atcoder;//必要なときだけ
+*/
 using ll = long long;
 #define rep(i,n) for(ll i=0; i<(n); ++i)
 using P = pair<ll,ll>;
@@ -18,6 +20,7 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  
+  string S; cin >> S;
+  cout << "Hello:" << S << endl;
   return 0;
 }
