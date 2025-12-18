@@ -4,12 +4,8 @@
 #include <bits/stdc++.h>
 #include <unordered_set>
 using namespace std;
-
-//ACL使いたいときは↓↓「//」消してコードテストで確認、提出
-
-//#include <atcoder/all>
-//using namespace atcoder;
-
+#include <atcoder/all>
+using namespace atcoder;
 using ll = long long;
 #define rep(i,n) for(ll i=0; i<(n); ++i)
 using P = pair<ll,ll>;
