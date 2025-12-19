@@ -20,30 +20,6 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  ll n; cin >> n;
-  vector<ll>P(n);
-  rep(i,n){
-    ll p; cin >> p;
-    p--;
-    P[i]=p;
-  }
-  ll ans = 0;
-  vector<bool>vis(n,false);
-  rep(i,n){
-    if(vis[i])continue;
-    vis[i]=true;
-    queue<ll>Q;
-    Q.push(i);
-    ll cnt=0;
-    while(!Q.empty()){
-      ll t=Q.front(); Q.pop();
-      cnt++;
-      if(vis[P[t]]) continue;
-      Q.push(P[t]);
-      vis[P[t]]=true;
-    }
-    ans+=cnt*(cnt-1)/2;
-  }
-  cout << ans << endl;
+  
   return 0;
 }
