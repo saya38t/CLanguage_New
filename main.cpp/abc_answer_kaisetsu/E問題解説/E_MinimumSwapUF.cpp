@@ -4,10 +4,8 @@
 #include <bits/stdc++.h>
 #include <unordered_set>
 using namespace std;
-/*
 #include <atcoder/all>
-using namespace atcoder;//必要なときだけ
-*/
+using namespace atcoder;
 using ll = long long;
 #define rep(i,n) for(ll i=0; i<(n); ++i)
 using P = pair<ll,ll>;
@@ -21,28 +19,17 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 //longlong仕様
 int main(){
   ll n; cin >> n;
-  vector<ll>P(n);
+  dsu uf(n);
+  ll ans = 0;
   rep(i,n){
     ll p; cin >> p;
     p--;
-    P[i]=p;
-  }
-  ll ans = 0;
-  vector<bool>vis(n,false);
-  rep(i,n){
-    if(vis[i])continue;
-    vis[i]=true;
-    queue<ll>Q;
-    Q.push(i);
-    ll cnt=0;
-    while(!Q.empty()){
-      ll t=Q.front(); Q.pop();
-      cnt++;
-      if(vis[P[t]]) continue;
-      Q.push(P[t]);
-      vis[P[t]]=true;
+    if(p==i) continue;
+    if (uf.same(p,i)) {
+      ll n=uf.size(p);
+      ans+=n*(n-1)/2;
     }
-    ans+=cnt*(cnt-1)/2;
+    else uf.merge(p,i);
   }
   cout << ans << endl;
   return 0;

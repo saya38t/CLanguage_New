@@ -20,7 +20,5 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  string S; cin >> S;
-  cout << "Hello:" << S << endl;
   return 0;
 }
