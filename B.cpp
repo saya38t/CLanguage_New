@@ -20,33 +20,5 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  string S; string T; cin >> S >> T;
-  ll tsz=T.size(),ssz=S.size();
-  vector<bool>ok(tsz+1,true);
-  bool l=true,r=true;
-  rep(i,tsz){//前から
-    if(l==false){
-      ok[i+1]=false;
-      continue;
-    }
-    if(S[i]!='?' && T[i]!='?' && S[i]!=T[i]) {
-      l=false;
-      ok[i+1]=l;
-    }
-  }
-  rep(i,tsz){//後ろから
-    if(r==false){
-      ok[tsz-i-1]=false;
-      continue;
-    }
-    if(S[ssz-i-1]!='?' && T[tsz-i-1]!='?' && S[ssz-i-1]!=T[tsz-i-1]){
-      r=false;
-      ok[tsz-i-1]=false;
-    }
-  }
-  rep(i,tsz+1){
-    if(ok[i]) cout << "Yes" << endl;
-    else cout << "No" << endl;
-  }
   return 0;
 }
