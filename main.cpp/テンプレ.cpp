@@ -20,6 +20,8 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  
   return 0;
 }
+/*
+auto f=[&](vector<int>A, int x){//ラムダ式}
+*/

@@ -17,32 +17,31 @@ template<typename T> bool chmax(T& a, T b){if(a < b){a = b; return true;} return
 const double PI = acos(-1); //π
 const vector<ll>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
+const ll mod=998244353;
 
 //longlong仕様
 int main(){
-  ll n,r,c; cin >> n >> r >> c;
-  ll R=0,C=0;
-  set<P>st;
-  st.emplace(pair(0,0));
-  string S; cin >> S;
-  string ans="";
-  rep(i,n){
-    if(S[i]=='N') {
-      r++; R++;
-    }
-    else if(S[i]=='W') {
-      c++; C++;
-    }
-    else if(S[i]=='S') {
-      r--; R--;
-    }
-    else if(S[i]=='E') {
-      c--; C--;
-    }
-    st.emplace(pair(R,C));
-    if(st.count(pair(r,c))) ans+='1';
-    else ans+='0';
+  ll n,m; cin >> n >> m;
+  vector<ll>A(n),B(m);
+  rep(i,n) cin >> A[i];
+  rep(i,m) cin >> B[i];
+  sort(A.begin(),A.end());
+  vector<ll>S=A;
+  rep(i,n-1){
+    S[i+1]+=S[i];
   }
-    cout << ans << endl;
+  ll ans = 0;
+  rep(i,m){
+    ll x = upper_bound(A.begin(),A.end(),B[i])-A.begin();
+    ll sum;
+    if(x==0) sum=S[n-1]-B[i]*n;
+    else if(x!=n) sum=S[n-1]-2*S[x-1]-B[i]*(n-2*x);
+    else sum=-(S[x-1]-B[i]*x);
+    //S[n-1]-S[x-1]-B[i]*(n-x)-(S[x-1]-B[i]*x)=S[n-1]-2*S[x-1]-B[i]*(n-2*x);
+    sum%=mod;
+    ans+=sum;
+    ans%=mod;
+  }
+  cout << ans << endl;
   return 0;
 }
