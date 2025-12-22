@@ -17,31 +17,39 @@ template<typename T> bool chmax(T& a, T b){if(a < b){a = b; return true;} return
 const double PI = acos(-1); //π
 const vector<ll>di={1,1,1,0,0,-1,-1,-1};//表移動(8)
 const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
-const ll mod=998244353;
 
 //longlong仕様
 int main(){
   ll n,m; cin >> n >> m;
-  vector<ll>A(n),B(m);
-  rep(i,n) cin >> A[i];
-  rep(i,m) cin >> B[i];
-  sort(A.begin(),A.end());
-  vector<ll>S=A;
-  rep(i,n-1){
-    S[i+1]+=S[i];
-  }
-  ll ans = 0;
+  map<ll,vector<P>>mp;//pair(頂点,w)
   rep(i,m){
-    ll x = upper_bound(A.begin(),A.end(),B[i])-A.begin();
-    ll sum;
-    if(x==0) sum=S[n-1]-B[i]*n;
-    else if(x!=n) sum=S[n-1]-2*S[x-1]-B[i]*(n-2*x);
-    else sum=-(S[x-1]-B[i]*x);
-    //S[n-1]-S[x-1]-B[i]*(n-x)-(S[x-1]-B[i]*x)=S[n-1]-2*S[x-1]-B[i]*(n-2*x);
-    sum%=mod;
-    ans+=sum;
-    ans%=mod;
+    ll u,v,w; cin >> u>> v >> w;
+    u--; v--;
+    mp[u].emplace_back(pair(v,w));
+    mp[v].emplace_back(pair(u,w));
   }
+  vector<bool>vis(n,false);
+  ll ans;
+  ll cnt=0;
+  auto dfs = [&](auto dfs, ll w, ll peak) -> void {
+    vis[peak]=true;
+    if(peak==n-1){//再帰終了時の処理
+      cnt++;
+      if(cnt==1) ans=w;
+      else chmin(ans,w);
+      vis[peak]=false;
+      return;//ループに戻る
+    }
+    for(auto[p,W]: mp[peak]){
+      if(vis[p]) continue;
+      dfs(dfs,w^W,p);//再帰呼び出し
+    }
+    vis[peak]=false;
+  };
+  dfs(dfs,0,0);
   cout << ans << endl;
   return 0;
 }
+/*
+auto f=[&](vector<int>A, int x){//ラムダ式}
+*/
