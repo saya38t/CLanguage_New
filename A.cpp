@@ -20,24 +20,6 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  ll n,S; cin >> n >> S;
-  vector<ll>A(n);
-  rep(i,n) cin >> A[i];
-  vector<ll>imosA=A;
-  rep(i,n) imosA.emplace_back(A[i]);
-  //cout << imosA.size() << endl;
-  rep(i,2*n-1) imosA[i+1]+=imosA[i];
-
-  S%=imosA[n-1];
-  rep(i,n){
-    ll x=lower_bound(imosA.begin(),imosA.end(),imosA[i]+S)-imosA.begin();
-    if(x==imosA.size()) continue;
-    if(imosA[x]==imosA[i]+S){
-      cout << "Yes" << endl;
-      return 0;
-    }
-  }
-  cout << "No" << endl;
   return 0;
 }
 /*
