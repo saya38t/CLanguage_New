@@ -20,7 +20,30 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  
+  ll n,t; cin >> n >> t;
+  if(n==0) {
+    cout << t << endl;
+    return 0;
+  }
+  vector<ll>A(n);
+  rep(i,n) cin >> A[i];
+  A.emplace_back(t);
+  queue<ll>Q;
+  Q.push(0);
+  ll sum=0;
+  rep(i,A.size()){
+    if(Q.empty()) break;
+    ll o=Q.front();
+    if(A[i]>=o){
+      sum+=A[i]-o;
+      Q.push(A[i]+100);
+      while(o<=A[i]){
+        Q.pop();
+        o=Q.front();
+      }
+    }
+  }
+  cout << sum << endl;
   return 0;
 }
 /*
