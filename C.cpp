@@ -20,23 +20,7 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  ll t; cin >> t;
-  rep(i,t){
-    ll n,h; cin >> n >> h;
-    ll pt=0,pl=h,pu=h;
-    ll yn=true;
-    rep(j,n){
-      ll t,l,u; cin >> t >> l >> u;
-      if(!yn) continue;
-      ll plL,puU;
-      plL=max((ll)1,pl-(t-pt)),puU=pu+(t-pt);
-      pl=max(plL,l), pu=min(puU,u);
-      if(pl>pu) yn=false;
-      pt=t;
-    }
-    if(yn) cout << "Yes" << endl;
-    else cout << "No" << endl;
-  }
+  
   return 0;
 }
 /*

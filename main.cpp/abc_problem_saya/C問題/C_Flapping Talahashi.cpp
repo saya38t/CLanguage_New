@@ -28,18 +28,10 @@ int main(){
     rep(j,n){
       ll t,l,u; cin >> t >> l >> u;
       if(!yn) continue;
-      ll plL,plU, puL,puU;
-      plL=max((ll)1,pl-(t-pt)),puL=max((ll)1,pu-(t-pt));
-      plU=pl+(t-pt),puU=pu+(t-pt);
-      //下
-      ll L=min({plL,puL,plU,puU});
-      //上
-      ll U=max({plL,puL,plU,puU});
-      if(L>u || U<l) yn=false;
-      else if(L<=l && U>=u) pl=l,pu=u;
-      else if(L>l && U>=u) pl=L,pu=u;
-      else if(L<=l && U<u) pl=l,pu=U;
-      else if(L>l && U<u) pl=min(L,U),pu=max(L,U);
+      ll plL,puU;
+      plL=max((ll)1,pl-(t-pt)),puU=pu+(t-pt);
+      pl=max(plL,l), pu=min(puU,u);
+      if(pl>pu) yn=false;
       pt=t;
     }
     if(yn) cout << "Yes" << endl;
