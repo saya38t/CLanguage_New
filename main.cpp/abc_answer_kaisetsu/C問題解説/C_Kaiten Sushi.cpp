@@ -20,6 +20,22 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
+  ll n,m; cin >> n >> m;
+  vector<ll>A(n);
+  rep(i,n) cin >> A[i];
+  vector<ll>ans(1e6,-1);
+  ll i=0,x=1e6-1;
+  while(x>0){
+    if(i==n) break;
+    if(A[i]<=x) {
+      ans[x]=i+1; x--;
+    }
+    else i++;
+  }
+  rep(i,m){
+    ll b; cin >> b;
+    cout << ans[b] << endl;
+  }
   return 0;
 }
 /*
