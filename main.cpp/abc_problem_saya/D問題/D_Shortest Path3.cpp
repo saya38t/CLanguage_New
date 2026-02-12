@@ -20,27 +20,33 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  ll n; cin >> n;
+  ll n,m; cin >> n >> m;
   vector<ll>A(n);
   rep(i,n) cin >> A[i];
-  vector<ll>kosu(1);
-  kosu[0]=0;
-  ll d=A[1]-A[0];
-  rep(i,n-1){
-    if(d==A[i+1]-A[i]) kosu.back()++;
-    else{
-      d=A[i+1]-A[i];
-      kosu.emplace_back(1);
+  map<ll,vector<P>>mp;//[元、（行先,重み）]
+  rep(i,m){
+    ll u,v,b; cin >> u >> v >> b;
+    u--; v--;
+    mp[u].emplace_back(pair(v,b));
+    mp[v].emplace_back(pair(u,b));
+  }
+  vector<ll>ans(n,1e18);
+  ans[0]=A[0];
+  //bfs
+  queue<ll>Q; Q.push(0);
+  //vector<bool>vis(n,false);
+  while(!Q.empty()){
+    ll tp=Q.front(); Q.pop();
+    //vis[tp]=true;
+    for(auto[v,b]:mp[tp]){
+      //if(vis[v]) continue;
+      if(ans[v]<=ans[tp]+A[v]+b) continue;
+      chmin(ans[v],ans[tp]+A[v]+b);
+      Q.push(v);
     }
   }
-  rep(i,kosu.size()-1) kosu[i+1]+=kosu[i];
-  ll N=kosu.back(),m=kosu.size();
-  vector<ll>ans(n);
-  rep(i,n){
-    ans[i]=N-i*m;
-  }
-  ans[0]=n; ans[1]=n*(n-1)/2;
-  rep(i,n) cout << ans[i] << endl;
+  rep(i,n-1) cout << ans[i+1] <<' ';
+  cout << endl;
   return 0;
 }
 /*
