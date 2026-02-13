@@ -37,7 +37,7 @@ int main(){
     // 最小の要素にアクセスする
 	std::cout << *st.begin() << '\n'; // 1
 	// 最大の要素にアクセスする
-	std::cout << *std::prev(st.end()) << '\n'; // 9
+	std::cout << *st.rbegin() << '\n'; // 9
 
     // 先頭及び末尾-1のイテレータを取得
     auto minIte = st.begin();

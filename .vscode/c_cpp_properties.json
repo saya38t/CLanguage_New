@@ -3,7 +3,8 @@
         {
             "name": "WSL",
             "includePath": [
-                "${workspaceFolder}/**","/home/saya38t/lib/ac-library-master"
+                "${workspaceFolder}/**",
+                "/home/saya38t/ac-library"
             ],
             "defines": [
                 "_DEBUG",
