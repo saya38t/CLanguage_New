@@ -20,7 +20,23 @@ const vector<ll>dj={1,-1,0,1,-1,-1,1,0};
 
 //longlong仕様
 int main(){
-  
+  ll n,k; cin >> n >> k;
+  vector<ll>P(n);
+  rep(i,n) cin >> P[i];
+  if(k==1) {
+    cout << 0 << endl;
+    return 0;
+  }
+  vector<ll>S(n);//[値]=添え字
+  rep(i,n) S[P[i]-1]=i+1;
+  ll ans=1e16;
+  set<ll>st;
+  rep(i,n){
+    st.emplace(S[i]);
+    if(st.size()>k) st.erase(S[i-k]);
+    if(st.size()==k) chmin(ans,*st.rbegin()-*st.begin());
+  }
+  cout << ans << endl;
   return 0;
 }
 /*
