@@ -28,56 +28,35 @@ int main(){
     if(S[i][j]=='o') imos[i][j]=pair(1,1);
     else if(S[i][j]=='x') imos[i][j]=pair(-1,0);
   }
-  vector<vector<P>>iimos=imos;
-  rep(i,h){
-    rep(j,w-1){
-      if(imos[i][j+1].first==-1) continue;
-      if(imos[i][j].first==-1) {
-        imos[i][j]=pair(0,0);
-        continue;
-      }
-      else {
-        imos[i][j+1].first+=imos[i][j].first;
-        imos[i][j+1].second+=imos[i][j].second;
-      }
-    }
-  }
-  rep(i,w){
-    rep(j,h-1){
-      if(iimos[j+1][i].first==-1) continue;
-      if(iimos[j][i].first==-1) {
-        iimos[j][i]=pair(0,0);
-        continue;
-      }
-      else {
-        iimos[j+1][i].first+=iimos[j][i].first;
-        iimos[j+1][i].second+=iimos[j][i].second;
+  auto solve=[&](vector<vector<P>>s,ll H, ll W)->ll{
+    rep(i,H){
+      rep(j,W-1){
+        if(s[i][j+1].first==-1) continue;
+        if(s[i][j].first==-1) {
+          s[i][j]=pair(0,0);
+          continue;
+        }
+        else {
+          s[i][j+1].first+=s[i][j].first;
+          s[i][j+1].second+=s[i][j].second;
+        }
       }
     }
-  }
-  /*rep(i,h){
-    rep(j,w)  cout << iimos[i][j].first <<','<<iimos[i][j].second <<' ';
-    cout << endl;
-  }*/
+    ll res=1e18;
+    rep(i,H)rep(j,W){
+      if(s[i][j].first>=k) {
+        if(j-k>-1) chmin(res,k-(s[i][j].second-s[i][j-k].second));
+        else chmin(res,k-s[i][j].second);
+      }
+    }
+    return res;
+  };
+  vector<vector<P>>iimos(w,vector<P>(h));
+  rep(i,h)rep(j,w) iimos[j][i]=imos[i][j];
   ll ans=1e18;
-  rep(i,h)rep(j,w){
-    if(imos[i][j].first>=k) {
-      if(j-k>-1)chmin(ans,k-(imos[i][j].second-imos[i][j-k].second));
-      else chmin(ans,k-imos[i][j].second);
-    }
-    //cout << ans << endl;
-  }
-  rep(i,w)rep(j,h){
-    if(iimos[j][i].first>=k) {
-      if(j-k>-1)chmin(ans,k-(iimos[j][i].second-iimos[j-k][i].second));
-      else chmin(ans,k-iimos[j][i].second);
-    }
-    //cout << ans << endl;
-  }
-  if(ans==1e18) cout << -1 << endl;
-  else cout << ans << endl;
+  chmin(ans,solve(imos,h,w));
+  chmin(ans,solve(iimos,w,h));
+  if(ans==1e18) ans=-1;
+  cout << ans << endl;
   return 0;
 }
-/*
-auto f=[&](vector<int>A, int x){//ラムダ式}
-*/s

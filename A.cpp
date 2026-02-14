@@ -11,7 +11,6 @@ using namespace atcoder;//必要なときだけ
 using ll = long long;
 #define rep(i,n) for(ll i=0; i<(n); ++i)
 using P = pair<ll,ll>;
-//a=min(a,b)、a=max(a,b)
 template<typename T> bool chmin(T& a, T b){if(a > b){a = b; return true;} return false;}
 template<typename T> bool chmax(T& a, T b){if(a < b){a = b; return true;} return false;}
 const double PI = acos(-1); //π
